@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmanuela N'GUETTA' | Portfolio Data</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #0f3460;
+            --accent: #e94560;
+            --light: #f8f9fa;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --gradient-start: #667eea;
+            --gradient-end: #764ba2;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(233, 69, 96, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-50px, 50px) rotate(5deg); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-subtitle {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: fadeIn 1s ease-out 0.3s backwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            animation: fadeIn 1s ease-out 0.5s backwards;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            animation: fadeIn 1s ease-out 0.7s backwards;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 1rem;
+            animation: fadeIn 1s ease-out 0.9s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(233, 69, 96, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--text-dark);
+            border: 2px solid var(--text-dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-dark);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 450px;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .img-decoration {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--accent);
+            border-radius: 20px;
+            top: 20px;
+            left: 20px;
+            z-index: 1;
+        }
+
+        /* Section générique */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            background: white;
+        }
+
+        .parcours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .parcours-column {
+            position: relative;
+        }
+
+        .column-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 2.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--accent);
+            display: inline-block;
+        }
+
+        .timeline-vertical {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-vertical::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end));
+            border-radius: 10px;
+        }
+
+        .timeline-item-vertical {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item-vertical::before {
+            content: '';
+            position: absolute;
+            left: -0.6rem;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.2);
+        }
+
+        .timeline-content-vertical {
+            padding: 1.8rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .timeline-content-vertical:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            border-left-color: var(--accent);
+        }
+
+        .timeline-date {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .timeline-title-vertical {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-subtitle {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .timeline-description {
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .skills-section .section-label,
+        .skills-section .section-title,
+        .skills-section .section-description {
+            color: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .skill-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Certifications Section */
+        .certifications-section {
+            background: white;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .certification-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent);
+        }
+
+        .certification-badge {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .badge-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .certification-content {
+            width: 100%;
+        }
+
+        .certification-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .certification-issuer {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .certification-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .certification-id {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            font-family: monospace;
+            margin-bottom: 1rem;
+        }
+
+        .certification-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .certification-link:hover {
+            gap: 1rem;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            background: var(--light);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Carousel Styles */
+        .project-carousel {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .carousel-images {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-image.active {
+            opacity: 1;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .project-card:hover .carousel-btn {
+            opacity: 1;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(233, 69, 96, 0.9);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: white;
+            width: 25px;
+            border-radius: 5px;
+        }
+
+        .dot:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tag {
+            background: rgba(233, 69, 96, 0.1);
+            color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .project-link:hover {
+            gap: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--primary);
+            color: white;
+        }
+
+        .contact-section .section-label,
+        .contact-section .section-title,
+        .contact-section .section-description {
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-image {
+                justify-self: center;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .parcours-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">EN</a>
+            <ul class="nav-links">
+                <li><a href="#about">Profil</a></li>
+                <li><a href="#parcours">Parcours</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-subtitle">Data Analyst & BI Developer</span>
+                <h1 class="hero-title">Emmanuela N'GUETTA</h1>
+                <p class="hero-description">
+                    Passionnée par la donnée et son impact stratégique, je transforme les données complexes 
+                    en insights actionnables pour accompagner la prise de décision stratégique.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">Me contacter →</a>
+                    <a href="#projects" class="btn btn-secondary">Voir mes projets</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="img/profil.jpg" alt="Profile" class="profile-img">
+                <div class="img-decoration"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parcours Section -->
+    <section class="timeline-section" id="parcours">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Mon parcours</span>
+                <h2 class="section-title">Formation & Expériences</h2>
+                <p class="section-description">
+                    Un parcours construit autour de la data et de la business intelligence
+                </p>
+            </div>
+
+            <div class="parcours-grid">
+                <!-- Colonne Expériences -->
+                <div class="parcours-column">
+                    <h3 class="column-title">💼 Expériences Professionnelles</h3>
+                    
+                    <div class="timeline-vertical">
+                        <div class="timeline-item-vertical fade-in">
+                            <div class="timeline-content-vertical">
+                                <span class="timeline-date">Sept 2022 - Août 2024</span>
+                                <h4 class="timeline-title-vertical">Développeur BI</h4>
+                                <p class="timeline-subtitle">URSSAF • Nantes</p>
+                                <p class="timeline-description">
+                                Projet : Mise en place d’une nouvelle offre de service BI pour le SIRH:
+                                
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item-vertical fade-in">
+                            <div class="timeline-content-vertical">
+                                <span class="timeline-date">Avr 2022 - Jul 2022</span>
+                                <h4 class="timeline-title-vertical">Développeur Java</h4>
+                                <p class="timeline-subtitle">KEEPEEK • Rennes</p>
+                                <p class="timeline-description">
+                                Projet : Mise en place d’un outil de monitoring Data pour des scripts spécifiques
+                                
+                                </p>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+
+                <!-- Colonne Formations -->
+                <div class="parcours-column">
+                    <h3 class="column-title">🎓 Formation</h3>
+                    
+                    <div class="timeline-vertical">
+                        <div class="timeline-item-vertical fade-in">
+                            <div class="timeline-content-vertical">
+                                <span class="timeline-date">2022 - 2024</span>
+                                <h4 class="timeline-title-vertical">Master MIAGE Data & BI</h4>
+                                <p class="timeline-subtitle">Université de Rennes 1 • Rennes</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="timeline-item-vertical fade-in">
+                            <div class="timeline-content-vertical">
+                                <span class="timeline-date">2020 - 2022</span>
+                                <h4 class="timeline-title-vertical">Licence MIAGE</h4>
+                                <p class="timeline-subtitle">Université de Rennes 1 • Rennes</p>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Mes compétences</span>
+                <h2 class="section-title">Expertise Technique</h2>
+                <p class="section-description">
+                    Un éventail de compétences pour transformer vos données en valeur business
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">📊</div>
+                    <h3 class="skill-title">BI & Data Visualisation</h3>
+                    <p class="skill-description">
+                        Power BI, Tableau, Tibco Spotfire, Power Query, Dax, création de dashboards interactifs,
+                        modélisation décisionnel.
+                    </p>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">☁️</div>
+                    <h3 class="skill-title">ETL & Bases de données </h3>
+                    <p class="skill-description">
+                        ETL, Big Query, Snowflake, Knime, Pentaho, Kettle, Hive,Oracle, MySQL.
+                    </p>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🤖</div>
+                    <h3 class="skill-title">Langages et traitements de données</h3>
+                    <p class="skill-description">
+                        Python, SQL
+                    </p>
+                </div>
+
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">💼</div>
+                    <h3 class="skill-title">AMOA & Support</h3>
+                    <p class="skill-description">
+                        Recueil de besoins, Animation d'atelier métier, spécifications fonctionnelles et techniques,
+                        formation des utilisateurs finaux, Rédaction de documentation.
+                    </p>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🎯</div>
+                    <h3 class="skill-title">Soft Skills</h3>
+                    <p class="skill-description">
+                        Capacité d'analyse, rigueur, autonomie, adaptabilité, esprit d'équipe collaboration, organisation et écoute active.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications-section" id="certifications">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Certifications</span>
+                <h2 class="section-title">Mes Certifications</h2>
+                <p class="section-description">
+                    Formations et certifications professionnelles validant mon expertise
+                </p>
+            </div>
+
+            <div class="certifications-grid">
+                <!-- Certification 1 -->
+                <div class="certification-card fade-in">
+                    <div class="certification-badge">
+                        <img src="img/Power-BI-Logo.jpg" alt="Badge" class="badge-img">
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">Power BI - Visualisations avancées et DAX </h3>
+                        <p class="certification-issuer">LinkedIn Learning</p>
+                        <a href="https://www.linkedin.com/learning/certificates/0765d90a9d09ec52b6160ad0f6b6e1fc6dd4f9d7c7e157b1d6486239c27e60fd?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BRKyCrO1PSPW2p637%2Bv%2FWzA%3D%3D" class="certification-link" target="_blank">Voir la certification →</a>
+                    </div>
+                </div>
+
+                <!-- Certification 2 -->
+                <div class="certification-card fade-in">
+                    <div class="certification-badge">
+                        <img src="img/sql-database-generic.svg" alt="Badge" class="badge-img">
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">SQL</h3>
+                        <p class="certification-issuer">ADA</p>
+
+                        <a href="https://certification.ada-study.com/?id=qEsWeP5NnN5c" class="certification-link" target="_blank">Voir la certification →</a>
+                    </div>
+                </div>
+
+                <!-- Certification 3 -->
+                <div class="certification-card fade-in">
+                    <div class="certification-badge">
+                        <img src="img/google-bigquery-logo-1.svg" alt="Badge" class="badge-img">
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">Big Query</h3>
+                        <p class="certification-issuer">ADA</p>
+                        <a href="https://certification.ada-study.com/?id=mWHyDdupFzh8" class="certification-link" target="_blank">Voir la certification →</a>
+                    </div>
+                </div>
+
+                <!-- Certification 4 -->
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Portfolio</span>
+                <h2 class="section-title">Mes Projets Récents</h2>
+                <p class="section-description">
+                    Une sélection de projets démontrant mon expertise en data analysis et BI
+                </p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1 avec carousel -->
+                <div class="project-card fade-in">
+                    <div class="project-carousel">
+                        <div class="carousel-images">
+                            <img src="img/Capture1.png" alt="Project 1 - Image 1" class="carousel-image active">
+                            <img src="img/Capture2.png" alt="Project 1 - Image 2" class="carousel-image">
+                            <img src="img/Capture3.png" alt="Project 1 - Image 3" class="carousel-image">
+                            <img src="img/Capture4.png" alt="Project 1 - Image 4" class="carousel-image">
+                            <img src="img/Capture5.png" alt="Project 1 - Image 5" class="carousel-image">
+
+                        </div>
+                        <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">‹</button>
+                        <button class="carousel-btn next" onclick="moveCarousel(this, 1)">›</button>
+                        <div class="carousel-dots">
+                            <span class="dot active" onclick="goToSlide(this, 0)"></span>
+                            <span class="dot" onclick="goToSlide(this, 1)"></span>
+                            <span class="dot" onclick="goToSlide(this, 2)"></span>
+                            <span class="dot" onclick="goToSlide(this, 3)"></span>
+                            <span class="dot" onclick="goToSlide(this, 4)"></span>
+                            <span class="dot" onclick="goToSlide(this, 5)"></span>
+                            <span class="dot" onclick="goToSlide(this, 0)"></span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Tableau de bord Opérationnelle - Analyse des perfomance</h3>
+                        <p class="project-description">
+                        Analyse de la performance opérationnelle et financière d'un distributeur
+                        wholesale B2C. Modélisation star schema avec 5 dimensions et 1 tables de faits; Création de 5 dashboards : Vue Executive, Livraisons, Finance, Clients, Commandes; Développement de 30+ mesures DAX (CA, profit, OTR, lead time, etc...)
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Power BI</span>
+                            <span class="project-tag">DAX</span>
+                            <span class="project-tag">Power Query</span>
+                        </div>
+                        <a href="#" class="project-link">Voir le projet →</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 avec carousel -->
+                
+
+                        
+                            <div class="project-card fade-in">
+                                <div class="project-carousel">
+                                    <div class="carousel-images">
+                                        <img src="img/Capture_écran.png" alt="Project 1 - Image 1" class="carousel-image active">
+                                        <img src="img/Capture_écran_.png" alt="Project 1 - Image 2" class="carousel-image">
+                                        
+
+                                    </div>
+                                    <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">‹</button>
+                                    <button class="carousel-btn next" onclick="moveCarousel(this, 1)">›</button>
+                                    <div class="carousel-dots">
+                                        <span class="dot active" onclick="goToSlide(this, 0)"></span>
+                                        <span class="dot" onclick="goToSlide(this, 1)"></span>
+                                        <span class="dot" onclick="goToSlide(this, 2)"></span>
+                                        <span class="dot" onclick="goToSlide(this, 3)"></span>
+                                        <span class="dot" onclick="goToSlide(this, 4)"></span>
+                                        <span class="dot" onclick="goToSlide(this, 5)"></span>
+                                        <span class="dot" onclick="goToSlide(this, 0)"></span>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title">Tableau de bord de Ventes</h3>
+                                    <p class="project-description">
+                                    Dashboard Power BI interactif pour analyser les performances commerciales d'une entreprise retail avec 1M de clients et 2,5 Mds€ de CA.
+                                    </p>
+                                    <div class="project-tags">
+                                        <span class="project-tag">Power BI</span>
+                                        <span class="project-tag">DAX</span>
+                                        <span class="project-tag">Power Query</span>
+                                    </div>
+                                    <a href="#" class="project-link">Voir le projet →</a>
+                                </div>
+                            </div>
+
+
+                
+
+                
+
+                <!-- Project 6 -->
+                
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Restons en contact</span>
+                <h2 class="section-title">Contactez-moi</h2>
+                <p class="section-description">
+                    Je suis disponible pour discuter de vos projets data et opportunités professionnelles
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card fade-in">
+                    <div class="contact-icon">📧</div>
+                    <h3 class="contact-title">Email</h3>
+                    <a href="mailto:emmanuellanguetta@gmail.com.com" class="contact-link">
+                        emmanuellanguetta@gmail.com
+                    </a>
+                </div>
+
+                <div class="contact-card fade-in">
+                    <div class="contact-icon">💼</div>
+                    <h3 class="contact-title">LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/marie-emmanuela-n-guetta/" target="_blank" class="contact-link">
+                        Visiter mon profil
+                    </a>
+                </div>
+
+                <div class="contact-card fade-in">
+                    <div class="contact-icon">💻</div>
+                    <h3 class="contact-title">GitHub</h3>
+                    <a href="https://github.com/emmanuellamarie" target="_blank" class="contact-link">
+                        Voir mes projets
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Votre Nom. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Carousel functionality
+        function moveCarousel(button, direction) {
+            const carousel = button.closest('.project-carousel');
+            const images = carousel.querySelectorAll('.carousel-image');
+            const dots = carousel.querySelectorAll('.dot');
+            
+            let currentIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+            
+            images[currentIndex].classList.remove('active');
+            dots[currentIndex].classList.remove('active');
+            
+            currentIndex += direction;
+            
+            if (currentIndex >= images.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            
+            images[currentIndex].classList.add('active');
+            dots[currentIndex].classList.add('active');
+        }
+
+        function goToSlide(dot, index) {
+            const carousel = dot.closest('.project-carousel');
+            const images = carousel.querySelectorAll('.carousel-image');
+            const dots = carousel.querySelectorAll('.dot');
+            
+            images.forEach(img => img.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            
+            images[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        // Auto-play carousel (optional)
+        function autoPlayCarousels() {
+            const carousels = document.querySelectorAll('.project-carousel');
+            carousels.forEach(carousel => {
+                const images = carousel.querySelectorAll('.carousel-image');
+                if (images.length > 1) {
+                    setInterval(() => {
+                        const nextBtn = carousel.querySelector('.carousel-btn.next');
+                        if (nextBtn && !carousel.matches(':hover')) {
+                            moveCarousel(nextBtn, 1);
+                        }
+                    }, 4000);
+                }
+            });
+        }
+
+        // Uncomment to enable auto-play
+        // autoPlayCarousels();
+    </script>
+</body>
+</html>

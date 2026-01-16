@@ -1066,99 +1066,82 @@
 
     <!-- Projects Section -->
     <section class="projects-section" id="projects">
-        <div class="container">
-            <div class="section-header fade-in">
-                <span class="section-label">Portfolio</span>
-                <h2 class="section-title">Mes Projets Récents</h2>
-                <p class="section-description">
-                    Une sélection de projets démontrant mon expertise en data analysis et BI
-                </p>
-            </div>
-
-            <div class="projects-grid">
-                <!-- Project 1 avec carousel -->
-                <div class="project-card fade-in">
-                    <div class="project-carousel">
-                        <div class="carousel-images">
-                            <img src="img/Capture1.png" alt="Project 1 - Image 1" class="carousel-image active">
-                            <img src="img/Capture2.png" alt="Project 1 - Image 2" class="carousel-image">
-                            <img src="img/Capture3.png" alt="Project 1 - Image 3" class="carousel-image">
-                            <img src="img/Capture4.png" alt="Project 1 - Image 4" class="carousel-image">
-                            <img src="img/Capture5.png" alt="Project 1 - Image 5" class="carousel-image">
-
-                        </div>
-                        <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">‹</button>
-                        <button class="carousel-btn next" onclick="moveCarousel(this, 1)">›</button>
-                        <div class="carousel-dots">
-                            <span class="dot active" onclick="goToSlide(this, 0)"></span>
-                            <span class="dot" onclick="goToSlide(this, 1)"></span>
-                            <span class="dot" onclick="goToSlide(this, 2)"></span>
-                            <span class="dot" onclick="goToSlide(this, 3)"></span>
-                            <span class="dot" onclick="goToSlide(this, 4)"></span>
-                            <span class="dot" onclick="goToSlide(this, 5)"></span>
-                            <span class="dot" onclick="goToSlide(this, 0)"></span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Tableau de bord Opérationnelle - Analyse des perfomance</h3>
-                        <p class="project-description">
-                        Analyse de la performance opérationnelle et financière d'un distributeur
-                        wholesale B2C. Modélisation star schema avec 5 dimensions et 1 tables de faits; Création de 5 dashboards : Vue Executive, Livraisons, Finance, Clients, Commandes; Développement de 30+ mesures DAX (CA, profit, OTR, lead time, etc...)
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Power BI</span>
-                            <span class="project-tag">DAX</span>
-                            <span class="project-tag">Power Query</span>
-                        </div>
-                        <a href="#" class="project-link">Voir le projet →</a>
-                    </div>
-                </div>
-
-                <!-- Project 2 avec carousel -->
-                
-
-                        
-                            <div class="project-card fade-in">
-                                <div class="project-carousel">
-                                    <div class="carousel-images">
-                                        <img src="img/Capture_écran.png" alt="Project 2 - Image 1" class="carousel-image active">
-                                        <img src="img/Capture_écran_.png" alt="Project 2 - Image 2" class="carousel-image">
-                                    </div>
-                                    <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">‹</button>
-                                    <button class="carousel-btn next" onclick="moveCarousel(this, 1)">›</button>
-                                    <div class="carousel-dots">
-                                        <span class="dot active" onclick="goToSlide(this, 0)"></span>
-                                        <span class="dot" onclick="goToSlide(this, 1)"></span>
-                                        <span class="dot" onclick="goToSlide(this, 2)"></span>
-                                        <span class="dot" onclick="goToSlide(this, 0)"></span>
-                                        
-                                    </div>
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title">Tableau de bord de Ventes</h3>
-                                    <p class="project-description">
-                                    Dashboard Power BI interactif pour analyser les performances commerciales d'une entreprise retail avec 1M de clients et 2,5 Mds€ de CA.
-                                    </p>
-                                    <div class="project-tags">
-                                        <span class="project-tag">Power BI</span>
-                                        <span class="project-tag">DAX</span>
-                                        <span class="project-tag">Power Query</span>
-                                    </div>
-                                    <a href="#" class="project-link">Voir le projet →</a>
-                                </div>
-                            </div>
-
-
-                
-
-                
-
-                <!-- Project 6 -->
-                
-                </div>
-            </div>
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-label">Portfolio</span>
+            <h2 class="section-title">Mes Projets Récents</h2>
+            <p class="section-description">
+                Une sélection de projets démontrant mon expertise en data analysis et BI
+            </p>
         </div>
-    </section>
+
+        <div class="projects-grid">
+            <!-- Project 1 avec carousel -->
+            <div class="project-card fade-in">
+                <div class="project-carousel">
+                    <div class="carousel-images">
+                        <img src="img/Capture1.png" alt="Project 1 - Image 1" class="carousel-image active">
+                        <img src="img/Capture2.png" alt="Project 1 - Image 2" class="carousel-image">
+                        <img src="img/Capture3.png" alt="Project 1 - Image 3" class="carousel-image">
+                        <img src="img/Capture4.png" alt="Project 1 - Image 4" class="carousel-image">
+                        <img src="img/Capture5.png" alt="Project 1 - Image 5" class="carousel-image">
+                    </div>
+                    <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">‹</button>
+                    <button class="carousel-btn next" onclick="moveCarousel(this, 1)">›</button>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="goToSlide(this, 0)"></span>
+                        <span class="dot" onclick="goToSlide(this, 1)"></span>
+                        <span class="dot" onclick="goToSlide(this, 2)"></span>
+                        <span class="dot" onclick="goToSlide(this, 3)"></span>
+                        <span class="dot" onclick="goToSlide(this, 4)"></span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Tableau de bord Opérationnelle - Analyse des performances</h3>
+                    <p class="project-description">
+                        Analyse de la performance opérationnelle et financière d'un distributeur
+                        wholesale B2C. Modélisation star schema avec 5 dimensions et 1 table de faits; Création de 5 dashboards : Vue Executive, Livraisons, Finance, Clients, Commandes; Développement de 30+ mesures DAX (CA, profit, OTR, lead time, etc...)
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Power BI</span>
+                        <span class="project-tag">DAX</span>
+                        <span class="project-tag">Power Query</span>
+                    </div>
+                    <a href="#" class="project-link">Voir le projet →</a>
+                </div>
+            </div>
+
+            <!-- Project 2 avec carousel -->
+            <div class="project-card fade-in">
+                <div class="project-carousel">
+                    <div class="carousel-images">
+                        <img src="img/Capture_écran.png" alt="Project 2 - Image 1" class="carousel-image active">
+                        <img src="img/Capture_écran_.png" alt="Project 2 - Image 2" class="carousel-image">
+                    </div>
+                    <button class="carousel-btn prev" onclick="moveCarousel(this, -1)">‹</button>
+                    <button class="carousel-btn next" onclick="moveCarousel(this, 1)">›</button>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="goToSlide(this, 0)"></span>
+                        <span class="dot" onclick="goToSlide(this, 1)"></span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Tableau de bord de Ventes</h3>
+                    <p class="project-description">
+                        Dashboard Power BI interactif pour analyser les performances commerciales d'une entreprise retail avec 1M de clients et 2,5 Mds€ de CA.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Power BI</span>
+                        <span class="project-tag">DAX</span>
+                        <span class="project-tag">Power Query</span>
+                    </div>
+                    <a href="#" class="project-link">Voir le projet →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
